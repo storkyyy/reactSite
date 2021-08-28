@@ -6,14 +6,14 @@ class Directory extends Component {
         constructor(props){ // whenever class component created with constructor, must include props
             super(props); // always first line of constructor, required
             this.state = {
-                selectdCampsite: null
+                selectedCampsite: null
             };
         }
 
         onCampsiteSelect(campsite) {
             //Set selected campsite to clicked campsite
             //Never set state directly utilizing this.state.selectedCampsite = campsite; ALWAYS use setState
-            this.setState({selectdCampsite: campsite});
+            this.setState({selectedCampsite: campsite});
         }
 
         renderSelectedCampsite(campsite) {
@@ -57,7 +57,7 @@ class Directory extends Component {
                     </div>
                     <div className="row">
                         <div className="col-md-5 m-1">
-                            {this.renderSelectedCampsite(this.state.selectdCampsite)}
+                            {this.renderSelectedCampsite(this.state.selectedCampsite)}
                         </div>
                     </div>
                 </div>
@@ -68,3 +68,4 @@ class Directory extends Component {
 }
 
 export default Directory;
+
