@@ -1,67 +1,64 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
+function RenderComments({comments}) {
 
-class CampsiteInfo extends Component {
-
-    renderComments(comments) {
-
-        // Ensure comments exist
-        if(comments) {
-            return (
-                <div className="col-md-5 m-1">
-                    <h4>Comments</h4>
-                    {comments.map(comment => {
-                        return (
-                            <div key={comment.id}>
-                                {comment.text}<br/>
-                                <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
-                            </div>
-                        );
-                    })}
-                </div>
-            );
-        }
-        return <div />;
-
-    }
-
-
-    renderCampsite(campsite) {
+    // Ensure comments exist
+    if(comments) {
         return (
             <div className="col-md-5 m-1">
-                <Card>
-                    <CardImg top src={campsite.image} alt={campsite.name} />
-                    <CardBody>
-                        <CardTitle>{campsite.name}</CardTitle>
-                        <CardText>{campsite.description}</CardText>
-                    </CardBody>
-                </Card>
+                <h4>Comments</h4>
+                {comments.map(comment => {
+                    return (
+                        <div key={comment.id}>
+                            {comment.text}<br/>
+                            <p>--{comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                        </div>
+                    );
+                })}
             </div>
         );
     }
+    return <div />;
+
+}
 
 
-    render() {
+function RenderCampsite({campsite}) {
 
-        // Ensure campsite passed to component
-        if(this.props.campsite) {
-            return (
-                <div className="container">
-                    <div className="row">
-                        {/* Renders the campsite passed through directory */}
-                        {this.renderCampsite(this.props.campsite)}
+    return (
+        <div className="col-md-5 m-1">
+            <Card>
+                <CardImg top src={campsite.image} alt={campsite.name} />
+                <CardBody>
+                    <CardTitle>{campsite.name}</CardTitle>
+                    <CardText>{campsite.description}</CardText>
+                </CardBody>
+            </Card>
+        </div>
+    );
 
-                        {/* Render comments applicable to campsite */}
-                        {this.renderComments(this.props.campsite.comments)}
-                    </div>
+}
+
+
+function CampsiteInfo(props) {
+
+    // Ensure campsite passed to component
+    if(props.campsite) {
+
+        return (
+            <div className="container">
+                <div className="row">
+                    {/* Renders the campsite passed through directory */}
+                    <RenderCampsite campsite={props.campsite} />
+                    {/* Render comments applicable to campsite */}
+                    <RenderComments comments={props.campsite.comments} />
                 </div>
-            );
-        }
-        
-        return <div />;
-
+            </div>
+        );
     }
+    
+    return <div />;
 
 }
 
