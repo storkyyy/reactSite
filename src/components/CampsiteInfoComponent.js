@@ -47,12 +47,14 @@ class CampsiteInfo extends Component {
         // Ensure campsite passed to component
         if(this.props.campsite) {
             return (
-                <div className="row">
-                    {/* Renders the campsite passed through directory */}
-                    {this.renderCampsite(this.props.campsite)}
+                <div className="container">
+                    <div className="row">
+                        {/* Renders the campsite passed through directory */}
+                        {this.renderCampsite(this.props.campsite)}
 
-                    {/* Render comments applicable to campsite */}
-                    {this.renderComments(this.props.campsite.comments)}
+                        {/* Render comments applicable to campsite */}
+                        {this.renderComments(this.props.campsite.comments)}
+                    </div>
                 </div>
             );
         }
