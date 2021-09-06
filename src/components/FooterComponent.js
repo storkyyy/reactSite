@@ -18,10 +18,10 @@ function Footer(props) {
                     <div className="col-6 col-sm-3 text-center">
                         <h5>Social</h5>
                         {/* {' '} is white space in JSX */}
-                        <a className="btn btn-social-icon btn-instagram" href="http://instagram.com/" target="_blank" rel="noreferrer"><i className="fa fa-instagram" /></a>{' '}
-                        <a className="btn btn-social-icon btn-facebook" href="http://www.facebook.com/" target="_blank" rel="noreferrer"><i className="fa fa-facebook" /></a>{' '}
-                        <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/" target="_blank" rel="noreferrer"><i className="fa fa-twitter" /></a>{' '}
-                        <a className="btn btn-social-icon btn-google" href="http://youtube.com/" target="_blank" rel="noreferrer"><i className="fa fa-youtube" /></a> 
+                        <a className="btn btn-social-icon btn-instagram mt-1" href="http://instagram.com/" target="_blank" rel="noreferrer"><i className="fa fa-instagram" /></a>{' '}
+                        <a className="btn btn-social-icon btn-facebook mt-1" href="http://www.facebook.com/" target="_blank" rel="noreferrer"><i className="fa fa-facebook" /></a>{' '}
+                        <a className="btn btn-social-icon btn-twitter mt-1" href="http://twitter.com/" target="_blank" rel="noreferrer"><i className="fa fa-twitter" /></a>{' '}
+                        <a className="btn btn-social-icon btn-google mt-1" href="http://youtube.com/" target="_blank" rel="noreferrer"><i className="fa fa-youtube" /></a> 
                     </div>
                     <div className="col-sm-4 text-center">
                         <a role="button" className="btn btn-link" href="tel:+12065551234"><i className="fa fa-phone" /> 1-206-555-1234</a><br />

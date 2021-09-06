@@ -2,13 +2,14 @@ import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-function RenderPartner({partner}) {
+function RenderPartner({ partner }) {
 
-    if(partner) {
+    // Ensure partner passed 
+    if (partner) {
         return (
             <React.Fragment>
                 <Media object src={partner.image} alt={partner.name} width="150" />
-                <Media className="ml-5 mb-4" body> 
+                <Media className="ml-5 mb-4" body>
                     <Media heading>
                         {partner.name}
                     </Media>
@@ -17,7 +18,7 @@ function RenderPartner({partner}) {
             </React.Fragment>
         );
     }
-    
+
     return <div />;
 
 }
@@ -73,7 +74,7 @@ function About(props) {
                                 <p className="mb-0">I will not follow where the path may lead, but I will go where there is no path, and I will leave a trail.</p>
                                 <footer className="blockquote-footer">Muriel Strode,{' '}
                                     <cite title="Source Title">"Wind-Wafted Wild Flowers" -
-                                    The Open Court, 1903</cite>
+                                        The Open Court, 1903</cite>
                                 </footer>
                             </blockquote>
                         </CardBody>
