@@ -6,8 +6,8 @@ import { PROMOTIONS } from '../shared/promotions';
 export const initialState = {
     campsites: CAMPSITES,
     comments: COMMENTS,
-    partner: PARTNERS,
-    promotion: PROMOTIONS
+    partners: PARTNERS,
+    promotions: PROMOTIONS
 };
 
 export const Reducer = (state = initialState, action) => {
