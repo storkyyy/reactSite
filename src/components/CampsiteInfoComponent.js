@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const minLength = len => val => val && (val.length >= 2);
 const maxLength = len => val => !val || (val.length <= 15);
 
-function RenderComments({ comments }) {
+function RenderComments({ comments, addComment, campsiteId }) {
 
     // Ensure comments exist
     if (comments) {
@@ -21,7 +21,7 @@ function RenderComments({ comments }) {
                         </div>
                     );
                 })}
-                <CommentForm />
+                <CommentForm campsiteId={campsiteId} addComment={addComment} />
             </div>
         );
     }
@@ -67,7 +67,11 @@ function CampsiteInfo(props) {
                     {/* Renders the campsite passed through directory */}
                     <RenderCampsite campsite={props.campsite} />
                     {/* Render comments applicable to campsite */}
-                    <RenderComments comments={props.comments} />
+                    <RenderComments 
+                        comments={props.comments} 
+                        addComment={props.addComment}
+                        campsiteId={props.campsite.id}
+                    />
                 </div>
             </div>
         );
@@ -88,11 +92,12 @@ class CommentForm extends Component {
 
         //Bind event handler to this 
         this.toggleModal = this.toggleModal.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleSubmit(values) {
-        console.log('Current state is: ' + JSON.stringify(values));
-        alert('Current state is: ' + JSON.stringify(values));
+        this.toggleModal();
+        this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);
     }
 
     toggleModal() {
@@ -156,9 +161,9 @@ class CommentForm extends Component {
                                 <Label htmlFor="comment">Comment</Label>
                                 <Control.textarea
                                     className="form-control"
-                                    model=".comment"
-                                    name="comment"
-                                    id="comment"
+                                    model=".text"
+                                    name="text"
+                                    id="text"
                                     rows="6"
                                 />
                             </div>
