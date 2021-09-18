@@ -1,4 +1,3 @@
-import { actions } from 'react-redux-form';
 import * as ActionTypes from './ActionTypes';
 
 export const Campsites = (state = { isLoading: true, errMess: null, campsites: [] }, action) => {
