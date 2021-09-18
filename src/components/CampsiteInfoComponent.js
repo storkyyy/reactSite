@@ -8,7 +8,7 @@ import { baseUrl } from '../shared/baseUrl';
 const minLength = len => val => val && (val.length >= 2);
 const maxLength = len => val => !val || (val.length <= 15);
 
-function RenderComments({ comments, addComment, campsiteId }) {
+function RenderComments({ comments, postComment, campsiteId }) {
 
     // Ensure comments exist
     if (comments) {
@@ -23,7 +23,7 @@ function RenderComments({ comments, addComment, campsiteId }) {
                         </div>
                     );
                 })}
-                <CommentForm campsiteId={campsiteId} addComment={addComment} />
+                <CommentForm campsiteId={campsiteId} postComment={postComment} />
             </div>
         );
     }
@@ -93,7 +93,7 @@ function CampsiteInfo(props) {
                     {/* Render comments applicable to campsite */}
                     <RenderComments 
                         comments={props.comments} 
-                        addComment={props.addComment}
+                        postComment={props.postComment}
                         campsiteId={props.campsite.id}
                     />
                 </div>
@@ -121,7 +121,7 @@ class CommentForm extends Component {
 
     handleSubmit(values) {
         this.toggleModal();
-        this.props.addComment(this.props.campsiteId, values.rating, values.author, values.text);
+        this.props.postComment(this.props.campsiteId, values.rating, values.author, values.text);
     }
 
     toggleModal() {
