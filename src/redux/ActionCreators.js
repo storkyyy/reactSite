@@ -21,7 +21,7 @@ export const fetchCampsites = () => dispatch => {
             },
             error => {
                 const errMess = new Error(error.message);
-                throw error;
+                throw errMess;
             }
         )
         .then(response => response.json())
@@ -45,7 +45,7 @@ export const fetchComments = () => dispatch => {
         },
             error => {
                 const errMess = new Error(error.message);
-                throw error;
+                throw errMess;
             }
         )
         .then(response => response.json())
@@ -127,7 +127,7 @@ export const fetchPromotions = () => dispatch => {
         },
             error => {
                 const errMess = new Error(error.message);
-                throw error;
+                throw errMess;
             }
         )
         .then(response => response.json())
